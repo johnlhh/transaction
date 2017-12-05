@@ -23,7 +23,6 @@ public class CommonServiceImpl implements CommonService {
     @Transactional
     @Override
     public Integer add(User user) {
-        userMapper.add(user);
         int flag =  userService.add(user);
 
 
@@ -32,9 +31,7 @@ public class CommonServiceImpl implements CommonService {
 
     @Override
     public Integer addNo(User user) {
-        userMapper.add(user);
         int flag =  userService.add(user);
-        flag = 1/0;
         return flag;
     }
 

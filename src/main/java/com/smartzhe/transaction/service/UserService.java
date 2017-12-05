@@ -9,7 +9,7 @@ public interface UserService {
 
      Integer add(User user);
 
-     void add1();
+     void add1(User user);
      void add2();
 
 

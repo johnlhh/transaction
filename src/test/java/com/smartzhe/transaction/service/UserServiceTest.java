@@ -26,26 +26,37 @@ public class UserServiceTest {
     private CommonService commonService;
 
 
+    /**
+     * userService.add1 没有事务 调用了有事务的userService.add 没有回滚
+     */
     @Test
-    public void test_add(){
+    public void test_add1(){
         User user = new User();
         user.setName("john");
-        userService.add(user);
+        userService.add1(user);
     }
 
-    /*@Test
+    /**
+     * commonService.addNo没有事务 调用了有事务的userService.add 回滚了
+     */
+    @Test
+    public void test_comm_add(){
+        User user = new User();
+        user.setName("john-common");
+        commonService.addNo(user);
+    }
+
+    @Test
     public void test_addNo(){
         User user = new User();
         user.setName("john");
         userService.addNo(user);
     }
 
-    @Test
-    public void test_comm_add(){
-        User user = new User();
-        user.setName("john-common");
-        commonService.add(user);
-    }
+    /*
+
+
+
 
     @Test
     public void test_comm_addNo(){

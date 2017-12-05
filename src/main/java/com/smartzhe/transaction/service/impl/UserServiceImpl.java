@@ -33,10 +33,10 @@ public class UserServiceImpl implements UserService {
     }
 
 
-    @Transactional
+
     @Override
-    public void add1(){
-        insert();
+    public void add1(User user){
+        add(user);
     }
 
     @Override
@@ -64,14 +64,16 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public Integer add(User user)  {
-
-        ((UserService) AopContext.currentProxy()).add1();
+        insert();
+        int flag = 1/0;
+        /*((UserService) AopContext.currentProxy()).add1();
 
         try {
             ((UserService) AopContext.currentProxy()).add2();
         } catch (Exception e) {
         }
         ((UserService) AopContext.currentProxy()).add1();
+        return 1;*/
         return 1;
     }
 
